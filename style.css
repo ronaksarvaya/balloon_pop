@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 99vh;
+  width: 99vw;
+  overflow: hidden;
+}
+
+body {
+  background-image: url("Graphics/Background.png");
+  background-size: cover;
+  background-position: center;
+}
+.parent {
+  display: grid;
+  grid-template-columns: 5fr repeat(2, 1fr);
+  grid-template-rows: 5fr repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+#pumpBox {
+  grid-area: 3 / 3 / 4 / 4;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  transition: transform 0.2s ease;
+}
+#pumpHandle {
+  grid-area: 2 / 3 / 3 / 4;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  transform: translateY(50%);
+  transition: transform 0.1s ease;
+  
+}
+.move-down {
+  transform: translateY(10%);
+}
+.expandBox {
+  transform: scale(1.05);
+}
+
+#pumpHandle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#pumpBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#pipe {
+  grid-area: 3 / 2 / 4 / 3;
+  height: 100%;
+  width: 100%;
+  transform: translateX(45%) translateY(-20%);
+}
+
+#pipe img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#initialBalloon {
+  grid-area: 2 / 2 / 3 / 3;
+  height: 100%;
+  width: 100%;
+  transform-origin: 50% 100%;
+  transition: transform 0.2s ease-in-out;
+  transform: translateX(20%) translateY(4%) scale(0.4);
+  
+}
+#initialBalloon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: 50% 100%;  
+}
