@@ -89,7 +89,7 @@ body {
   position: relative; /* Added to position the alphabet image */
 }
 
-#firstballoon {
+#initialBalloon img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -115,20 +115,20 @@ body {
 }
 
 #nextBalloon {
-  position: absolute;
-  bottom: 20%;
-  left: 20%;
-  height: 100px;
-  width: 100px;
+  grid-area: 2 / 2 / 3 / 3;
+  height: 100%;
+  width: 100%;
   transform-origin: 50% 100%;
-  transition: transform 0.2s ease-in-out;
-  transform: scale(0.4);
+  transition: transform 1s ease-in-out;
+  transform: translateX(20%) translateY(4%) scale(0.1);
+  /* background-color: pink; */
   cursor: pointer;
+  position: relative; /* Added to position the alphabet image */
 }
 
 #nextBalloon img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
