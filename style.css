@@ -12,10 +12,11 @@ body {
 }
 
 body {
-  background-image: url("Graphics/Background.png");
+  background-image: url(Graphics/Background.png);
   background-size: cover;
   background-position: center;
 }
+
 .parent {
   display: grid;
   grid-template-columns: 5fr repeat(2, 1fr);
@@ -33,6 +34,7 @@ body {
   z-index: 10;
   transition: transform 0.2s ease;
 }
+
 #pumpHandle {
   grid-area: 2 / 3 / 3 / 4;
   height: 100%;
@@ -40,11 +42,12 @@ body {
   cursor: pointer;
   transform: translateY(50%);
   transition: transform 0.1s ease;
-  
 }
+
 .move-down {
   transform: translateY(10%);
 }
+
 .expandBox {
   transform: scale(1.05);
 }
@@ -73,18 +76,59 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
 #initialBalloon {
   grid-area: 2 / 2 / 3 / 3;
   height: 100%;
   width: 100%;
   transform-origin: 50% 100%;
-  transition: transform 0.2s ease-in-out;
-  transform: translateX(20%) translateY(4%) scale(0.4);
-  
+  transition: transform 1s ease-in-out;
+  transform: translateX(20%) translateY(4%) scale(0.1);
+  /* background-color: pink; */
+  cursor: pointer;
+  position: relative; /* Added to position the alphabet image */
 }
-#initialBalloon img {
+
+#firstballoon {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform-origin: 50% 100%;  
 }
+
+.alphabet-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%; /* Adjust as needed */
+  height: auto;
+  object-fit: contain;
+}
+
+@keyframes flyToTopLeft {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-70vw, -50vh) scale(1);
+  }
+}
+
+#nextBalloon {
+  position: absolute;
+  bottom: 20%;
+  left: 20%;
+  height: 100px;
+  width: 100px;
+  transform-origin: 50% 100%;
+  transition: transform 0.2s ease-in-out;
+  transform: scale(0.4);
+  cursor: pointer;
+}
+
+#nextBalloon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
