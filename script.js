@@ -37,6 +37,7 @@ const clickToInflate = (balloon) => {
 
   if (clickCount < 5) {
     if (scale < 1.1) {
+      // Scale the entire balloon container (including the alphabet image)
       balloon.style.transform = `translateX(20%) translateY(4%) scale(${scale})`;
       scale += 0.2;
       console.log("Scale:", scale);
@@ -67,6 +68,8 @@ const clickToInflate = (balloon) => {
 
   console.log("Click count:", clickCount);
 };
+
+
 
 const handlePumpClick = (balloon) => {
   const inflateBalloon = () => clickToInflate(balloon);
