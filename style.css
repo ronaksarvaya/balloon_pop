@@ -31,7 +31,7 @@ body {
   grid-area: 3 / 3 / 4 / 4;
   height: 100%;
   width: 100%;
-  z-index: 10;
+  z-index: 5; /* Lower than balloons */
   transition: transform 0.2s ease;
 }
 
@@ -42,6 +42,7 @@ body {
   cursor: pointer;
   transform: translateY(50%);
   transition: transform 0.1s ease;
+  z-index: 4; /* Lower than balloons */
 }
 
 .move-down {
@@ -69,6 +70,7 @@ body {
   height: 100%;
   width: 100%;
   transform: translateX(45%) translateY(-20%);
+  z-index: 4; /* Lower than balloons */
 }
 
 #pipe img {
@@ -77,19 +79,22 @@ body {
   object-fit: cover;
 }
 
-#initialBalloon {
+#initialBalloon,
+#nextBalloon {
   grid-area: 2 / 2 / 3 / 3;
   height: 100%;
   width: 100%;
   transform-origin: 50% 100%;
-  transition: transform 1s ease-in-out;
+  transition: all 2s;
   transform: translateX(20%) translateY(4%) scale(0.1);
-  /* background-color: pink; */
   cursor: pointer;
-  position: relative; /* Added to position the alphabet image */
+  position: relative;
+  z-index: 10; /* Higher than pump and pipe */
+  /* background-color: pink; For debugging  */
 }
 
-#initialBalloon img {
+#initialBalloon img,
+#nextBalloon img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -105,30 +110,22 @@ body {
   object-fit: contain;
 }
 
-@keyframes flyToTopLeft {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
-  to {
-    transform: translate(-70vw, -50vh) scale(1);
-  }
-}
-
-#nextBalloon {
-  grid-area: 2 / 2 / 3 / 3;
-  height: 100%;
-  width: 100%;
-  transform-origin: 50% 100%;
-  transition: transform 1s ease-in-out;
-  transform: translateX(20%) translateY(4%) scale(0.1);
-  /* background-color: pink; */
+.flying-balloon {
+  position: absolute;
+  width: 150px;
+  left: 50%;
+  top: 40%;
+  transition: all 5s;
+  z-index: 1000; /* Ensure it's above other elements */
   cursor: pointer;
-  position: relative; /* Added to position the alphabet image */
+  animation: flyToCorner 5s linear forwards;
 }
 
-#nextBalloon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+@keyframes flyToCorner {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(-100vw, -100vh) rotate(360deg);
+  }
 }
-
